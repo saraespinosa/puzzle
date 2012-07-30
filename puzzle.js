@@ -1,6 +1,6 @@
 (function ( puzzle, undefined ) {
     puzzle = {
-        fizzBuzz: function ( n ) {
+        fizzbuzz: function ( n ) {
             return ( ( n % 3 ) ? '' : 'Fizz' ) + ( ( n % 5 ) ? '' : 'Buzz' ) || n;
         },
         kafifa: function ( n ) {
