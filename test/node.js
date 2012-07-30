@@ -1,4 +1,4 @@
-var puzzle = require( './puzzle' ),
+var puzzle = require( '../puzzle' ),
     assert = require( 'assert' );
 
 describe( 'puzzle', function () {
