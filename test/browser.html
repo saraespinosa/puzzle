@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>puzzle browser test</title>
+    <link rel="stylesheet" href="jasmine-1.2.0/jasmine.css">
+    <script src="jasmine-1.2.0/jasmine.js"></script>
+    <script src="jasmine-1.2.0/jasmine-html.js"></script>    
+    <script src="../puzzle.js"></script>    
+</head>
+<body>
+    <script>
+        describe( 'fizzbuzz', function () {
+            it( 'should return Fizz for divisibles of 3', function () {
+                expect( puzzle.fizzbuzz( 3 ) ).toBe( 'Fizz' );
+            });
+            
+            it( 'should return Buzz for divisibles of 5', function () {
+                expect( puzzle.fizzbuzz( 5 ) ).toBe( 'Buzz' );
+            });
+            
+            it( 'should return FizzBuzz for divisibles of 3 and 5', function () {
+                expect( puzzle.fizzbuzz( 15 ) ).toBe( 'FizzBuzz' );
+            });
+            
+            it( 'should return {i} for non divisibles of 3 or 5', function () {
+                expect( puzzle.fizzbuzz( 2 ) ).toBe( 2 );
+            });
+            
+            it( 'should return an array from {i} to {j} mapped to fizzbuzz', function () {
+                expect( puzzle.fizzbuzz( 1, 5 ).length ).toBe( 5 );
+            });
+        });
+        
+        (function() {
+          var jasmineEnv = jasmine.getEnv();
+          jasmineEnv.updateInterval = 250;
+        
+          var htmlReporter = new jasmine.HtmlReporter();
+          jasmineEnv.addReporter(htmlReporter);
+        
+          jasmineEnv.specFilter = function(spec) {
+            return htmlReporter.specFilter(spec);
+          };
+        
+          var currentWindowOnload = window.onload;
+          window.onload = function() {
+            if (currentWindowOnload) {
+              currentWindowOnload();
+            }
+        
+            execJasmine();
+          };
+        
+          function execJasmine() {
+            jasmineEnv.execute();
+          }
+        }());
+    </script>
+</body>
+</html>

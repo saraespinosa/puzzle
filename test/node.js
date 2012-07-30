@@ -2,7 +2,6 @@ var puzzle = require( '../puzzle' ),
     vows   = require( 'vows' ),
     assert = require( 'assert' );
 
-// testing fizzbuzz
 vows.describe( 'fizzbuzz' ).addBatch({
     'when the number is divisible by 3': {
         topic: puzzle.fizzbuzz( 3 ),
@@ -26,6 +25,13 @@ vows.describe( 'fizzbuzz' ).addBatch({
         topic: puzzle.fizzbuzz( 2 ),
         'is it self': function ( topic ) {
             assert.equal( topic, 2 );
+        }
+    },
+    'when there is two numbers': {
+        topic: puzzle.fizzbuzz( 1, 5 ),
+        'it is an array from i to j mapped to fizzbuzz': function ( topic ) {
+            assert.equal( topic.length, 5 );
+            assert.equal( JSON.stringify( topic ), JSON.stringify( [1, 2, 'Fizz', 4, 'Buzz'] ) );
         }
     }
 }).run();
